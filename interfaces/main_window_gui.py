@@ -1,5 +1,6 @@
 from bank_models.account_management import Client
 from bank_models.session_data import check_session_file
+from interfaces.session_gui import GUISession
 from os.path import exists
 from csv import DictReader, DictWriter
 from tkinter import *
@@ -110,6 +111,7 @@ class InitialGUI:
                             session_data = r".\bank_databases\session_data.csv"
                             with open(session_data, mode='w', newline="", encoding="utf-8") as archive_two:
                                 document = DictWriter(f=archive_two, fieldnames=Client.HEADER)
+                                document.writeheader()
                                 document.writerow({
                                     "Número da conta": client["Número da conta"],
                                     "Saldo": client["Saldo"],
@@ -123,7 +125,14 @@ class InitialGUI:
             account_number.delete(0, END)
             login.delete(0, END)
             password.delete(0, END)
-            print("LOGOUUU!!!!!")
+            main_frame.destroy()
+            system_state.destroy()
+            # loading_label = Label(root, text='Carregando informações...', bg='#393e46', fg='#eeeeee',
+            #                       font=('Helvetica', 24))
+            # loading_label.pack(pady=50)
+
+            # This class will be executed while the user is within the session
+            GUISession(root=root, main_window=self)
 
         # Getting rid of the old Widgets
         self.label1.destroy()

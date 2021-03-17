@@ -1,6 +1,6 @@
 from tkinter import *
 from interfaces.functions import centralize
-from interfaces.classes import InitialGUI
+from interfaces.main_window_gui import InitialGUI
 
 # Initial GUI settings
 main_window = Tk()
@@ -11,7 +11,7 @@ centralize(1200, 700, main_window)
 
 
 # Starting the main UI
-widgets = InitialGUI(main_window)
+InitialGUI(main_window)
 
 
 # Main Loop ending

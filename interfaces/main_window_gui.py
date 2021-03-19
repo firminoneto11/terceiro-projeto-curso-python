@@ -127,9 +127,6 @@ class InitialGUI:
             password.delete(0, END)
             main_frame.destroy()
             system_state.destroy()
-            # loading_label = Label(root, text='Carregando informações...', bg='#393e46', fg='#eeeeee',
-            #                       font=('Helvetica', 24))
-            # loading_label.pack(pady=50)
 
             # This class will be executed while the user is within the session
             GUISession(root=root, main_window=self)

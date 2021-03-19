@@ -1,4 +1,5 @@
 from tkinter import *
+from interfaces.depositar_gui import DepositarGUI
 from csv import DictReader
 
 SESSION_DATA = r".\bank_databases\session_data.csv"
@@ -29,7 +30,7 @@ class GUISession:
                     return client["Senha"]
 
     def __init__(self, root, main_window):
-        # State of the system and main frame creation
+        # State of the system, main frame and data frame creation
         self.state_label = Label(root, text='Suas informações', bg='#393e46', fg='#eeeeee', font=('Helvetica', 24))
         self.buttons_frame = LabelFrame(root, bg='#393e46')
         self.data_frame = LabelFrame(root, bg='#393e46', text='Seus dados', fg='#00adb5', font=('Helvetica', 14))
@@ -59,7 +60,7 @@ class GUISession:
 
         # Inserting the 'depositar' button
         self.deposit_button = Button(self.buttons_frame, text='Depositar', width=25, font=('Helvetica', 14),
-                                     bg='#eeeeee', fg='#393e46', borderwidth=3)
+                                     bg='#eeeeee', fg='#393e46', borderwidth=3, command=self.depositar)
 
         # Inserting the 'sacar' button
         self.withdrawal_button = Button(self.buttons_frame, text='Sacar', width=25, font=('Helvetica', 14),
@@ -106,3 +107,7 @@ class GUISession:
         self.data_frame.destroy()
         self.buttons_frame.destroy()
         main_window.__init__(root)
+
+    @staticmethod
+    def depositar():
+        DepositarGUI()

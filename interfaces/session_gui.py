@@ -1,5 +1,6 @@
 from tkinter import *
 from interfaces.depositar_gui import DepositarGUI
+from bank_models.session_data import wipe_session_data
 from csv import DictReader
 
 SESSION_DATA = r".\bank_databases\session_data.csv"
@@ -117,6 +118,7 @@ class GUISession:
         self.state_label.destroy()
         self.data_frame.destroy()
         self.buttons_frame.destroy()
+        wipe_session_data()
         main_window.__init__(root)
 
     def __depositar(self):

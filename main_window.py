@@ -1,6 +1,8 @@
 from tkinter import *
 from interfaces.functions import centralize
 from interfaces.main_window_gui import InitialGUI
+from bank_models.session_data import closing_on_x
+
 
 # Initial GUI settings
 main_window = Tk()
@@ -12,6 +14,10 @@ centralize(1200, 700, main_window)
 
 # Starting the main UI
 InitialGUI(main_window)
+
+
+# Wiping the data from session_data_csv in case the user closes the main_window on the 'X' button
+main_window.protocol('WM_DELETE_WINDOW', lambda: closing_on_x(main_window))
 
 
 # Main Loop ending

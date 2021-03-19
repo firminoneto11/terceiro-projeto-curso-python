@@ -14,12 +14,12 @@ def centralize(width, height, element):
     element.geometry("%dx%d+%d+%d" % (width, height, posx, posy))
 
 
-def update_session_data(new_balance):
+def update_session_data_csv(new_balance):
     """
     This function updated the session_data.csv file with the new balance that was given by the user. It only updates the
     balance!
     :param new_balance: New balance typed by the user and previously verified by the system.
-    :return: None
+    :return: Returns a list containing the updated data for the session data.
     """
     session_data = r".\bank_databases\session_data.csv"
     header = "Número da conta", "Saldo", "Nome", "CPF", "Data de nascimento", "Login", "Senha"
@@ -55,12 +55,32 @@ def update_session_data(new_balance):
             "Senha": updated_data["Senha"]
         })
 
+    updated_data_listed = []
+    for value in updated_data.values():
+        updated_data_listed.append(value)
 
-def update_clients(new_balance):
+    return updated_data_listed
+
+
+def update_clients_csv(updated_data):
     """
     This function updated the clients.csv file with the new balance that was given by the user. It only updates the
     balance!
-    :param new_balance: New balance typed by the user and previously verified by the system.
+    :param updated_data: The entire updated data from the client from the session data.
     :return: None
     """
     database = r".\bank_databases\clients.csv"
+
+    # Saving the old information into a variable
+    with open(database, mode='r', encoding='utf-8', newline='') as file:
+        old_db_content = file.readlines()
+
+    # Overwriting the old information and replacing for the updated data, only if is from the user from the current
+    # session
+    with open(database, mode='w', encoding='utf-8', newline='') as file:
+        for line in old_db_content:
+            if line.startswith(updated_data[0]):
+                file.write(','.join(updated_data))
+                file.write('\n')
+            else:
+                file.write(line)

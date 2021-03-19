@@ -16,9 +16,9 @@ class InitialGUI:
         :param root: The main window element.
         """
         self.button1 = Button(root, text='Entrar na conta', width=25, font=('Helvetica', 14), bg='#222831',
-                              fg='#eeeeee', borderwidth=3, command=lambda: self.acessar_conta(root))
+                              fg='#eeeeee', borderwidth=3, command=lambda: self.__acessar_conta(root))
         self.button2 = Button(root, text='Criar Conta', width=25, font=('Helvetica', 14), bg='#222831', fg='#eeeeee',
-                              borderwidth=3, command=lambda: self.criar_conta(root))
+                              borderwidth=3, command=lambda: self.__criar_conta(root))
         self.button3 = Button(root, text='Administrador', width=25, font=('Helvetica', 14), bg='#222831', fg='#eeeeee',
                               borderwidth=3)
         self.button4 = Button(root, text='Sair', width=25, font=('Helvetica', 14), bg='#222831', fg='#eeeeee',
@@ -32,7 +32,7 @@ class InitialGUI:
         self.button3.grid(row=1, column=2, padx=55)
         self.button4.grid(row=2, column=1, padx=55, pady=50)
 
-    def acessar_conta(self, root):
+    def __acessar_conta(self, root):
         """
         This method creates the UI for the 'entrar na conta' option selected in the main menu. First, it destroys all
         the old content from the screen, and then creates and render a new UI with the elements needed to access the
@@ -179,7 +179,7 @@ class InitialGUI:
         access_account.grid(row=3, column=0, padx=15, pady=15)
         back.grid(row=3, column=1, padx=15, pady=15)
 
-    def criar_conta(self, root):
+    def __criar_conta(self, root):
         """
         This method creates the UI for the 'criar conta' option selected in the main menu. First, it destroys all the
         old content from the screen, and then creates and render a new UI with the elements needed to create an account.

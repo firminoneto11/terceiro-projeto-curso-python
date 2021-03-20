@@ -8,9 +8,16 @@ SESSION_DATA = r".\bank_databases\session_data.csv"
 HEADER = "Número da conta", "Saldo", "Nome", "CPF", "Data de nascimento", "Login", "Senha"
 
 
-class DepositarGUI:
+class DepositGUI:
 
     def __init__(self, frame, label):
+        """
+        This __init__ method initializes the sub window for the deposit area.
+        :param frame: This is the self.buttons_frame from GUISession class. It's going to be used to update the new
+        balance after a successfully deposit.
+        :param label: This is the self.balance_label from GUISession class. It's going to be used to update the new
+        balance after a successfully deposit.
+        """
         # Saving frame and label in order to update them after the deposit
         self.frame = frame
         self.label = label
@@ -51,6 +58,10 @@ class DepositarGUI:
         self.cancel_button.grid(row=1, column=1, padx=10, pady=50)
 
     def __depositing(self):
+        """
+        This method does the whole deposit logic into the current client's session.
+        :return: None
+        """
         # Storing the gathered data into a variable
         new_balance = self.deposit_amount.get()
 
@@ -65,7 +76,7 @@ class DepositarGUI:
         # Checking if the deposit amount is valid
         if len(new_balance) == 0:
             self.deposit_amount.delete(0, END)
-            error = messagebox.showerror("Campo vazio", "O campo de entrada está vazio!")
+            error = messagebox.showerror("Campo vazio", "O valor para o depósito está vazio!")
             if error == 'ok':
                 self.gui_depositar.destroy()
                 return None
@@ -115,6 +126,12 @@ class DepositarGUI:
                 return None
 
     def __update_balance_after_deposit(self, balance):
+        """
+        This method updates the balance label from the GUISession class that was previously passed to the __init__
+        method. It will only be called after a successfully deposit.
+        :param balance: The new overall balance from the user. Previous balance plus the deposit.
+        :return: None
+        """
         self.label = Label(self.frame, text=f"Saldo - R${balance}", font=('Helvetica', 14),
                            bg='#393e46', fg='#eeeeee')
         self.label.grid(row=1, column=0, pady=10)

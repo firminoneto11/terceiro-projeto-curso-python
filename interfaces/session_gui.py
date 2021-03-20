@@ -1,5 +1,6 @@
 from tkinter import *
-from interfaces.depositar_gui import DepositarGUI
+from interfaces.deposit_gui import DepositGUI
+from interfaces.withdrawal_gui import WithdrawalGUI
 from bank_models.session_data import wipe_session_data
 from csv import DictReader
 
@@ -72,11 +73,11 @@ class GUISession:
 
         # Inserting the 'depositar' button
         self.deposit_button = Button(self.buttons_frame, text='Depositar', width=25, font=('Helvetica', 14),
-                                     bg='#eeeeee', fg='#393e46', borderwidth=3, command=self.__depositar)
+                                     bg='#eeeeee', fg='#393e46', borderwidth=3, command=self.__deposit)
 
         # Inserting the 'sacar' button
         self.withdrawal_button = Button(self.buttons_frame, text='Sacar', width=25, font=('Helvetica', 14),
-                                        bg='#393e46', fg='#eeeeee', borderwidth=3)
+                                        bg='#393e46', fg='#eeeeee', borderwidth=3, command=self.__withdrawal)
 
         # Inserting the 'transferir' button
         self.transfer_button = Button(self.buttons_frame, text='Transferir', width=25, font=('Helvetica', 14),
@@ -121,9 +122,16 @@ class GUISession:
         wipe_session_data()
         main_window.__init__(root)
 
-    def __depositar(self):
+    def __deposit(self):
         """
-        This method initializes the DepositarGUI class.
+        This method initializes the DepositGUI class.
         :return: None
         """
-        DepositarGUI(frame=self.data_frame, label=self.balance_label)
+        DepositGUI(frame=self.data_frame, label=self.balance_label)
+
+    def __withdrawal(self):
+        """
+        This method initializes the WithdrawalGUI class.
+        :return: None
+        """
+        WithdrawalGUI(frame=self.data_frame, label=self.balance_label)

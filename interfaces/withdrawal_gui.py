@@ -1,12 +1,7 @@
 from tkinter import *
 from interfaces.functions import centralize
-from csv import DictReader
 from tkinter import messagebox
-from interfaces.functions import update_session_data_csv, update_clients_csv
-
-
-SESSION_DATA = r".\bank_databases\session_data.csv"
-HEADER = "Número da conta", "Saldo", "Nome", "CPF", "Data de nascimento", "Login", "Senha"
+from interfaces.functions import update_session_data_csv, update_clients_csv, get_current_balance
 
 
 class WithdrawalGUI:
@@ -68,14 +63,7 @@ class WithdrawalGUI:
         withdrawal = self.withdrawal_amount.get()
 
         # Collecting the current balance
-        with open(SESSION_DATA, mode='r', newline='', encoding='utf-8') as file:
-            archive = DictReader(f=file, fieldnames=HEADER)
-            next(archive)
-            for client in archive:
-                current_balance = client["Saldo"]
-                current_balance = current_balance.replace('R$', '')
-                current_balance = float(current_balance)
-                break
+        current_balance = get_current_balance()
 
         # Checking if the withdrawal amount is valid
         if len(withdrawal) == 0:

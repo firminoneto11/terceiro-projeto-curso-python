@@ -1,6 +1,7 @@
 from tkinter import *
 from interfaces.deposit_gui import DepositGUI
 from interfaces.withdrawal_gui import WithdrawalGUI
+from interfaces.transfer_gui import TransferGUI
 from bank_models.session_data import wipe_session_data
 from csv import DictReader
 
@@ -81,7 +82,7 @@ class GUISession:
 
         # Inserting the 'transferir' button
         self.transfer_button = Button(self.buttons_frame, text='Transferir', width=25, font=('Helvetica', 14),
-                                      bg='#00adb5', fg='#eeeeee', borderwidth=3)
+                                      bg='#00adb5', fg='#eeeeee', borderwidth=3, command=self.__transfer)
 
         # Inserting a back button in the session area
         self.back_button = Button(self.buttons_frame, text='Voltar ao menu inicial', width=25, font=('Helvetica', 14),
@@ -135,3 +136,11 @@ class GUISession:
         :return: None
         """
         WithdrawalGUI(frame=self.data_frame, label=self.balance_label)
+
+    def __transfer(self):
+        """
+        This method initializes the TransferGUI class.
+        :return: None
+        """
+        account = self.__get_data('Número da conta')
+        TransferGUI(frame=self.data_frame, label=self.balance_label, current_account=account)

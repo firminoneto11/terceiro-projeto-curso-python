@@ -84,3 +84,40 @@ def update_clients_csv(updated_data):
                 file.write('\n')
             else:
                 file.write(line)
+
+
+def get_current_balance():
+    """
+    This function opens the 'session_data.csv' file and gets the current 'Saldo'/'Balance' amount and returns it as a
+    float pointing number.
+    :return: The current balance from the current client accessing the system, in float pointing number.
+    """
+    session_data = r".\bank_databases\session_data.csv"
+    header = "Número da conta", "Saldo", "Nome", "CPF", "Data de nascimento", "Login", "Senha"
+
+    with open(session_data, mode='r', newline='', encoding='utf-8') as file:
+        archive = DictReader(f=file, fieldnames=header)
+        next(archive)
+        for client in archive:
+            current_balance = client["Saldo"]
+            current_balance = current_balance.replace('R$', '')
+            current_balance = float(current_balance)
+            return current_balance
+
+
+def get_account_numbers():
+    """
+    This functions opens the 'clients.csv' file and gets every account number and returns it as a list.
+    :return: A list containing every account number in the clients.csv file. The numbers are integers.
+    """
+    database = r".\bank_databases\clients.csv"
+    header = "Número da conta", "Saldo", "Nome", "CPF", "Data de nascimento", "Login", "Senha"
+    account_numbers = []
+
+    with open(database, mode='r', encoding='utf-8', newline='') as file:
+        archive = DictReader(f=file, fieldnames=header)
+        next(archive)
+        for client in archive:
+            account_numbers.append(int(client[header[0]]))
+
+    return account_numbers

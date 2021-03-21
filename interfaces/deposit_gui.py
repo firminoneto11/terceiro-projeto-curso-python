@@ -1,11 +1,7 @@
 from tkinter import *
 from interfaces.functions import centralize
-from csv import DictReader
 from tkinter import messagebox
-from interfaces.functions import update_session_data_csv, update_clients_csv
-
-SESSION_DATA = r".\bank_databases\session_data.csv"
-HEADER = "Número da conta", "Saldo", "Nome", "CPF", "Data de nascimento", "Login", "Senha"
+from interfaces.functions import update_session_data_csv, update_clients_csv, get_current_balance
 
 
 class DepositGUI:
@@ -66,12 +62,7 @@ class DepositGUI:
         new_balance = self.deposit_amount.get()
 
         # Collecting the current balance
-        with open(SESSION_DATA, mode='r', newline='', encoding='utf-8') as file:
-            archive = DictReader(f=file, fieldnames=HEADER)
-            next(archive)
-            for client in archive:
-                current_balance = client["Saldo"]
-                break
+        current_balance = get_current_balance()
 
         # Checking if the deposit amount is valid
         if len(new_balance) == 0:
@@ -101,9 +92,8 @@ class DepositGUI:
                                                                  f"R${new_balance} na sua conta?")
             # If response is 'Yes' or True
             if response:
-                # Casting to float the old amount and adding it to the new deposit
-                current_balance = current_balance.replace("R$", '')
-                current_balance = round((float(current_balance) + new_balance), 2)
+                # Adding the old amount with the new deposit
+                current_balance = round((current_balance + new_balance), 2)
 
                 # Updating the current balance in the session_gui class
                 self.__update_balance_after_deposit(balance=current_balance)

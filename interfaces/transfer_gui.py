@@ -1,5 +1,5 @@
 from tkinter import *
-from interfaces.functions import centralize, get_current_balance, get_account_numbers
+from interfaces.functions import centralize, get_current_balance, get_account_numbers, db_transfer_update
 from tkinter import messagebox
 
 
@@ -118,5 +118,61 @@ class TransferGUI:
             if error == 'ok':
                 self.transfer_gui.destroy()
                 return None
+
+        # Validating the transfer amount that is going to be subtracted from the current balance
+        user_new_balance = round((current_balance - transfer_amount), 2)
+        if user_new_balance < 0:
+            self.transfer_amount.delete(0, END)
+            self.destiny_account.delete(0, END)
+            error = messagebox.showerror("Saldo insuficiente", "O valor informado para a transferência é insuficiente, "
+                                                               "pois o seu saldo atual é menor do que a quantia a ser "
+                                                               "transferida.")
+            if error == 'ok':
+                self.transfer_gui.destroy()
+                return None
+
+        # This part will only be executed if all the previous checks weren't activated
         else:
-            print('poggiers')
+            # Cleaning the typed data from the input entry
+            self.transfer_amount.delete(0, END)
+            self.destiny_account.delete(0, END)
+
+            # Before updating stuff, i need to get a confirmation from the user
+            response = messagebox.askyesno('Confirmar transferência', f'Deseja efetuar a transferência no valor de '
+                                                                      f'R${transfer_amount} para a conta de '
+                                                                      f'número {destiny_account}?')
+
+            # If response is 'Yes' or True
+            if response:
+                # Updating the current balance in the session_gui class
+                self.__update_balance_after_transfer(balance=user_new_balance)
+
+                # Executing the function that updates the clients.csv and session_data.csv files, doing the transferring
+                db_transfer_update(user_new_balance=user_new_balance, transfer_amount=transfer_amount,
+                                   destiny_account=destiny_account)
+
+                # Informing to the user that its deposit has been successfully made
+                success = messagebox.showinfo("Transferência feita com sucesso", f"Parabéns! Sua transferência no "
+                                                                                 f"valor de R${transfer_amount} foi "
+                                                                                 f"efetuada com sucesso para a conta "
+                                                                                 f"de número {destiny_account}. Seu "
+                                                                                 f"novo saldo é de "
+                                                                                 f"R${user_new_balance}.")
+                if success == 'ok':
+                    self.transfer_gui.destroy()
+                    return None
+
+            # If response is 'No' or False
+            else:
+                self.transfer_gui.destroy()
+                return None
+
+    def __update_balance_after_transfer(self, balance):
+        """
+        This method updates the balance label from the GUISession class that was previously passed to the __init__
+        method. It will only be called after a successfully transfer.
+        :param balance: The new overall balance from the user. Previous balance minus the transfer amount.
+        :return: None
+        """
+        self.label = Label(self.frame, text=f"Saldo - R${balance}", font=('Helvetica', 14), bg='#393e46', fg='#eeeeee')
+        self.label.grid(row=1, column=0, pady=10)

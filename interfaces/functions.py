@@ -121,3 +121,82 @@ def get_account_numbers():
             account_numbers.append(int(client[header[0]]))
 
     return account_numbers
+
+
+def db_transfer_update(user_new_balance, transfer_amount, destiny_account):
+    """
+    This function does the transfer logic, reading, updating and deleting the data. It updates both session_data.csv and
+    clients.csv files accordingly to the transfer.
+    :param user_new_balance: The user's previous balance minus the transfer amount.
+    :param transfer_amount: The transfer amount desired for the transfer.
+    :param destiny_account: The destiny account number for the transfer.
+    :return: None
+    """
+    session_data = r".\bank_databases\session_data.csv"
+    database = r".\bank_databases\clients.csv"
+    header = "Número da conta", "Saldo", "Nome", "CPF", "Data de nascimento", "Login", "Senha"
+
+    # Step 1 - Updating session_data.csv file
+    with open(session_data, mode='r', encoding='utf-8', newline='') as file:
+        archive = DictReader(f=file, fieldnames=header)
+        next(archive)
+        for client in archive:
+            new_data_from_session_data = {
+                'Número da conta': client.get('Número da conta'),
+                'Saldo': f'R${str(user_new_balance)}',
+                'Nome': client.get('Nome'),
+                'CPF': client.get('CPF'),
+                'Data de nascimento': client.get('Data de nascimento'),
+                'Login': client.get('Login'),
+                'Senha': client.get('Senha')
+            }
+            break
+    with open(session_data, mode='w', encoding='utf-8', newline='') as file:
+        archive = DictWriter(f=file, fieldnames=header)
+        archive.writeheader()
+        archive.writerow({
+            'Número da conta': new_data_from_session_data.get('Número da conta'),
+            'Saldo': new_data_from_session_data.get('Saldo'),
+            'Nome': new_data_from_session_data.get('Nome'),
+            'CPF': new_data_from_session_data.get('CPF'),
+            'Data de nascimento': new_data_from_session_data.get('Data de nascimento'),
+            'Login': new_data_from_session_data.get('Login'),
+            'Senha': new_data_from_session_data.get('Senha')
+        })
+    with open(session_data, mode='r', encoding='utf-8', newline='') as file:
+        updated_user_line = file.readlines()
+        updated_user_line = updated_user_line[1]
+
+    # Step 2 - Updating the clients.csv file
+    with open(database, mode='r', encoding='utf-8', newline='') as file:
+        archive = DictReader(f=file, fieldnames=header)
+        destiny_account = str(destiny_account)
+        for client in archive:
+            if client['Número da conta'] == destiny_account:
+                target_new_amount = client['Saldo']
+                target_new_amount = target_new_amount.replace('R$', '')
+                target_new_amount = float(target_new_amount)
+                target_new_amount = target_new_amount + transfer_amount
+
+                updated_target_line = {
+                    'Número da conta': client['Número da conta'],
+                    'Saldo': f'R${str(target_new_amount)}',
+                    'Nome': client['Nome'],
+                    'CPF': client['CPF'],
+                    'Data de nascimento': client['Data de nascimento'],
+                    'Login': client['Login'],
+                    'Senha': client['Senha']
+                }
+                break
+    with open(database, mode='r', encoding='utf-8', newline='') as file:
+        old_data = file.readlines()
+        target_new_data = [value for value in updated_target_line.values()]
+    with open(database, mode='w', encoding='utf-8', newline='') as file:
+        for line in old_data:
+            if line.startswith(str(updated_user_line[0:4])):
+                file.write(updated_user_line)
+            elif line.startswith(str(target_new_data[0])):
+                file.write(','.join(target_new_data))
+                file.write('\n')
+            else:
+                file.write(line)

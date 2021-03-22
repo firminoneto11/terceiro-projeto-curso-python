@@ -135,11 +135,5 @@ class WithdrawalGUI:
         :param balance: The new overall balance from the user. Previous balance minus the withdrawal.
         :return: None
         """
-        if balance == 0:
-            self.label = Label(self.frame, text="Saldo - R$0.0", font=('Helvetica', 14),
-                               bg='#393e46', fg='#eeeeee')
-            self.label.grid(row=1, column=0, pady=10)
-        else:
-            self.label = Label(self.frame, text=f"Saldo - R${balance}", font=('Helvetica', 14),
-                               bg='#393e46', fg='#eeeeee')
-            self.label.grid(row=1, column=0, pady=10)
+        self.label = Label(self.frame, text=f"Saldo - R${balance}", font=('Helvetica', 14), bg='#393e46', fg='#eeeeee')
+        self.label.grid(row=1, column=0, pady=10)

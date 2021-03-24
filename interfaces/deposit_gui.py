@@ -19,7 +19,8 @@ class DepositGUI:
         self.label = label
         # Creating another window for the 'depositar' section
         self.gui_depositar = Toplevel()
-        self.gui_depositar['bg'] = '#393e46'
+        self.gui_depositar.configure(background='#393e46')
+        self.gui_depositar.iconbitmap(r'.\assets\valware.ico')
         self.gui_depositar.resizable(False, False)
         self.gui_depositar.title("Depositar")
         centralize(width=900, height=500, element=self.gui_depositar)
@@ -47,7 +48,7 @@ class DepositGUI:
         self.state_label.pack(pady=50)
         self.main_frame.pack()
 
-        self.deposit_amount_label.grid(row=0, column=0, pady=10)
+        self.deposit_amount_label.grid(row=0, column=0, pady=10, sticky=E)
         self.deposit_amount.grid(row=0, column=1, pady=10)
 
         self.deposit_button.grid(row=1, column=0, padx=10, pady=50)
@@ -122,6 +123,7 @@ class DepositGUI:
         :param balance: The new overall balance from the user. Previous balance plus the deposit.
         :return: None
         """
+        self.label.destroy()
         self.label = Label(self.frame, text=f"Saldo - R${balance}", font=('Helvetica', 14),
                            bg='#393e46', fg='#eeeeee')
         self.label.grid(row=1, column=0, pady=10)

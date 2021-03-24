@@ -20,7 +20,8 @@ class WithdrawalGUI:
 
         # Creating another window for the 'withdrawal' section
         self.withdrawal_gui = Toplevel()
-        self.withdrawal_gui['bg'] = '#393e46'
+        self.withdrawal_gui.configure(background='#393e46')
+        self.withdrawal_gui.iconbitmap(r'.\assets\valware.ico')
         self.withdrawal_gui.resizable(False, False)
         self.withdrawal_gui.title("Saque")
         centralize(width=900, height=500, element=self.withdrawal_gui)
@@ -48,7 +49,7 @@ class WithdrawalGUI:
         self.state_label.pack(pady=50)
         self.main_frame.pack()
 
-        self.withdrawal_amount_label.grid(row=0, column=0, pady=10)
+        self.withdrawal_amount_label.grid(row=0, column=0, pady=10, sticky=E)
         self.withdrawal_amount.grid(row=0, column=1, pady=10)
 
         self.withdrawal_button.grid(row=1, column=0, padx=10, pady=50)
@@ -135,5 +136,6 @@ class WithdrawalGUI:
         :param balance: The new overall balance from the user. Previous balance minus the withdrawal.
         :return: None
         """
+        self.label.destroy()
         self.label = Label(self.frame, text=f"Saldo - R${balance}", font=('Helvetica', 14), bg='#393e46', fg='#eeeeee')
         self.label.grid(row=1, column=0, pady=10)

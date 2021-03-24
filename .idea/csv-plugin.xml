@@ -17,6 +17,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\interfaces\admin_access_gui.py">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\interfaces\classes.py">
           <value>
             <Attribute>

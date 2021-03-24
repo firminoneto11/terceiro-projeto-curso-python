@@ -22,7 +22,8 @@ class TransferGUI:
 
         # Creating another window for the 'transfer' section
         self.transfer_gui = Toplevel()
-        self.transfer_gui['bg'] = '#393e46'
+        self.transfer_gui.configure(background='#393e46')
+        self.transfer_gui.iconbitmap(r'.\assets\valware.ico')
         self.transfer_gui.resizable(False, False)
         self.transfer_gui.title("Transferir")
         centralize(width=900, height=500, element=self.transfer_gui)
@@ -54,9 +55,9 @@ class TransferGUI:
         self.state_label.pack(pady=50)
         self.main_frame.pack()
 
-        self.transfer_amount_label.grid(row=0, column=0, pady=10)
+        self.transfer_amount_label.grid(row=0, column=0, pady=10, sticky=E)
         self.transfer_amount.grid(row=0, column=1, pady=10)
-        self.destiny_account_label.grid(row=1, column=0, pady=10)
+        self.destiny_account_label.grid(row=1, column=0, pady=10, sticky=E)
         self.destiny_account.grid(row=1, column=1, pady=10)
 
         self.transfer_button.grid(row=2, column=0, padx=10, pady=50)
@@ -174,5 +175,6 @@ class TransferGUI:
         :param balance: The new overall balance from the user. Previous balance minus the transfer amount.
         :return: None
         """
+        self.label.destroy()
         self.label = Label(self.frame, text=f"Saldo - R${balance}", font=('Helvetica', 14), bg='#393e46', fg='#eeeeee')
         self.label.grid(row=1, column=0, pady=10)

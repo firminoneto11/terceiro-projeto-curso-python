@@ -7,7 +7,8 @@ from bank_models.session_data import closing_on_x
 # Initial GUI settings
 main_window = Tk()
 main_window.title("ValWare Bank")
-main_window['bg'] = '#393e46'
+main_window.iconbitmap(r'.\assets\valware.ico')
+main_window.configure(background='#393e46')
 main_window.resizable(False, False)
 centralize(1200, 700, main_window)
 

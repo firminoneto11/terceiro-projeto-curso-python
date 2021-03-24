@@ -6,6 +6,7 @@ from csv import DictReader, DictWriter
 from tkinter import *
 from tkinter import messagebox
 import datetime as dt
+from interfaces.admin_access_gui import AdminAccessGUI
 
 
 class InitialGUI:
@@ -20,7 +21,7 @@ class InitialGUI:
         self.button2 = Button(root, text='Criar Conta', width=25, font=('Helvetica', 14), bg='#222831', fg='#eeeeee',
                               borderwidth=3, command=lambda: self.__criar_conta(root))
         self.button3 = Button(root, text='Administrador', width=25, font=('Helvetica', 14), bg='#222831', fg='#eeeeee',
-                              borderwidth=3)
+                              borderwidth=3, command=lambda: self.__admin_access(root))
         self.button4 = Button(root, text='Sair', width=25, font=('Helvetica', 14), bg='#222831', fg='#eeeeee',
                               borderwidth=3, command=root.quit)
         self.label1 = Label(root, text='Escolha uma das opções abaixo', font=('Helvetica', 20), bg='#393e46',
@@ -31,6 +32,31 @@ class InitialGUI:
         self.button2.grid(row=1, column=1, padx=55)
         self.button3.grid(row=1, column=2, padx=55)
         self.button4.grid(row=2, column=1, padx=55, pady=50)
+
+    def __admin_access(self, root):
+        """
+        This method initializes the AdminAccessGUI class that contains the widgets that are needed for accessing the
+        Admin area.
+        :param root: The root window that was passed as an argument in the __init__ method from InitialGUI class.
+        :return: None
+        """
+        def back():
+            """
+            This function works like a 'back' button. Every time a button calls this function, it destroys every content
+            from the current window and returns to the main window.
+            :return: None
+            """
+            self.__init__(root=root)
+
+        # Getting rid of the old widgets
+        self.label1.destroy()
+        self.button1.destroy()
+        self.button2.destroy()
+        self.button3.destroy()
+        self.button4.destroy()
+
+        # Initializing the AdminAccessGUI class
+        AdminAccessGUI(root_window=root, back_function=back)
 
     def __acessar_conta(self, root):
         """
@@ -167,13 +193,13 @@ class InitialGUI:
         system_state.pack(pady=50)
         main_frame.pack()
 
-        account_number_label.grid(row=0, column=0, padx=10, pady=15)
+        account_number_label.grid(row=0, column=0, padx=10, pady=15, sticky=E)
         account_number.grid(row=0, column=1, padx=15, pady=15)
 
-        login_label.grid(row=1, column=0, padx=10, pady=15)
+        login_label.grid(row=1, column=0, padx=10, pady=15, sticky=E)
         login.grid(row=1, column=1, padx=15, pady=15)
 
-        password_label.grid(row=2, column=0, padx=10, pady=15)
+        password_label.grid(row=2, column=0, padx=10, pady=15, sticky=E)
         password.grid(row=2, column=1, padx=15, pady=15)
 
         access_account.grid(row=3, column=0, padx=15, pady=15)
@@ -358,19 +384,19 @@ class InitialGUI:
         system_state.pack(pady=50)
         main_frame.pack()
 
-        label_name.grid(row=0, column=0, padx=10, pady=15)
+        label_name.grid(row=0, column=0, padx=10, pady=15, sticky=E)
         name.grid(row=0, column=1, padx=15, pady=15)
 
-        label_cpf.grid(row=1, column=0, padx=10, pady=15)
+        label_cpf.grid(row=1, column=0, padx=10, pady=15, sticky=E)
         cpf.grid(row=1, column=1, padx=15, pady=15)
 
-        label_data_de_nascimento.grid(row=2, column=0, padx=10, pady=15)
+        label_data_de_nascimento.grid(row=2, column=0, padx=10, pady=15, sticky=E)
         data_de_nascimento.grid(row=2, column=1, padx=15, pady=15)
 
-        label_login.grid(row=3, column=0, padx=10, pady=15)
+        label_login.grid(row=3, column=0, padx=10, pady=15, sticky=E)
         login.grid(row=3, column=1, padx=15, pady=15)
 
-        label_password.grid(row=4, column=0, padx=10, pady=15)
+        label_password.grid(row=4, column=0, padx=10, pady=15, sticky=E)
         password.grid(row=4, column=1, padx=15, pady=15)
 
         criar_conta.grid(row=5, column=0, padx=10, pady=15)

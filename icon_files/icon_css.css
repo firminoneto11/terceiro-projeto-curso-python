@@ -1,0 +1,25 @@
+
+body {
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
+
+div {
+    display: table;
+    width: 256px;
+    height: 256px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: black;
+    margin-top: 200px;
+}
+
+h1 {
+    font-family: Helvetica;
+    text-decoration: overline underline;
+    color: white;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+}

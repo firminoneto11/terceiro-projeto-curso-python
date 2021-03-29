@@ -45,7 +45,7 @@ class GUISession:
         """
         # State of the system, main frame and data frame creation
         self.state_label = Label(root, text='Suas informações', bg='#393e46', fg='#eeeeee', font=('Helvetica', 24))
-        self.buttons_frame = LabelFrame(root, bg='#393e46')
+        self.buttons_frame = Frame(root, bg='#393e46')
         self.data_frame = LabelFrame(root, bg='#393e46', text='Seus dados', fg='#00adb5', font=('Helvetica', 14))
 
         # Showing all the users info

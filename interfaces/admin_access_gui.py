@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import messagebox
 from bank_models.admin_access import AdminAccess
+from interfaces.admin_area_gui import AdminAreaGUI
 
 
 class AdminAccessGUI:
@@ -63,6 +64,11 @@ class AdminAccessGUI:
         self.back_function()
 
     def __log_in(self):
+        """
+        This method gets the typed data from the user/admin and verifies with the database. If it matches, the Admin
+        area pops up, else, it doesn't.
+        :return: None
+        """
 
         # Collecting the data inputted by the user
         login = self.login.get()
@@ -85,4 +91,16 @@ class AdminAccessGUI:
             if error == 'ok':
                 return None
         else:
-            print('tudo certo, entrou lá')
+            # Cleaning the window area for the AdminAreaGUI class
+            self.system_state.destroy()
+            self.main_frame.destroy()
+
+            # Executing the __admin_area method
+            self.__admin_area()
+
+    def __admin_area(self):
+        """
+        This method initializes the AdminAreaGUI class
+        :return: None
+        """
+        AdminAreaGUI(main_window=self.root_window, back_function=self.back_function)

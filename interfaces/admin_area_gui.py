@@ -1,5 +1,7 @@
 from tkinter import *
 from bank_models.catch_db_data import get_db_data
+from interfaces.update_admin_data_gui import UpdateAdminDataGUI
+# from interfaces.functions import get_account_numbers
 
 
 class AdminAreaGUI:
@@ -44,10 +46,14 @@ class AdminAreaGUI:
         self.delete_account = Button(self.buttons_frame, text='Excluir conta', width=25, font=('Helvetica', 14),
                                      bg='red', fg='#eeeeee', borderwidth=3, state=DISABLED)
         self.update_login_password = Button(self.buttons_frame, text='Atualizar Login e Senha', width=25,
-                                            font=('Helvetica', 14), bg='#393e46', fg='#eeeeee', borderwidth=3)
+                                            font=('Helvetica', 14), bg='#393e46', fg='#eeeeee', borderwidth=3,
+                                            command=self.__update_admin_login_password)
         self.back_to_main_menu = Button(self.buttons_frame, text='Voltar ao menu Inicial', width=25,
                                         font=('Helvetica', 14), bg='#222831', fg='#eeeeee', borderwidth=3,
                                         command=self.__back)
+
+        # Binding the FocusIn event to change the state of the see_data and delete_account buttons
+        self.accounts_listbox.bind("<FocusIn>", self.__alter_state)
 
         # Putting it onto the screen
         self.system_state.pack(pady=50)
@@ -65,6 +71,15 @@ class AdminAreaGUI:
         self.update_login_password.grid(row=0, column=2, padx=5)
         self.back_to_main_menu.grid(row=0, column=3, padx=5)
 
+    def __alter_state(self, event):
+        """
+        This method alters the state of the see_data and delete_account buttons to NORMAL.
+        :param event: The event passed by the .bind() method, which in this case is 'FocusIn'.
+        :return: None
+        """
+        self.see_data.config(state=NORMAL)
+        self.delete_account.config(state=NORMAL)
+
     def __back(self):
         """
         This function works like a 'back' button. Every time a button calls this function, it destroys every content
@@ -79,3 +94,13 @@ class AdminAreaGUI:
 
         # Calling the back function that was passed as argument to the __init__ method
         self.back_function()
+
+    @staticmethod
+    def __update_admin_login_password():
+        """
+        This method initializes the UpdateAdminDataGUI class, that will be responsible for updating the login and pass
+        word from the admin.
+        :return: None
+        """
+        # Initializing the UpdateAdminDataGUI
+        UpdateAdminDataGUI()

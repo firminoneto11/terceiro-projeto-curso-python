@@ -25,8 +25,3 @@ def main():
 
     # Main Loop ending
     main_window.mainloop()
-
-
-# Executing the main() function
-if __name__ == '__main__':
-    main()

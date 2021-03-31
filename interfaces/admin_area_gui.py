@@ -1,7 +1,8 @@
 from tkinter import *
 from bank_models.catch_db_data import get_db_data
 from interfaces.update_admin_data_gui import UpdateAdminDataGUI
-# from interfaces.functions import get_account_numbers
+from interfaces.admin_seeing_data import AdminSeeDataGUI
+from tkinter import messagebox
 
 
 class AdminAreaGUI:
@@ -42,9 +43,10 @@ class AdminAreaGUI:
         self.buttons_frame = Frame(self.root, bg='#393e46')
 
         self.see_data = Button(self.buttons_frame, text='Ver dados da conta', width=25, font=('Helvetica', 14),
-                               bg='#00adb5', fg='#eeeeee', borderwidth=3, state=DISABLED)
+                               bg='#00adb5', fg='#eeeeee', borderwidth=3, state=DISABLED, command=self.__see_data)
         self.delete_account = Button(self.buttons_frame, text='Excluir conta', width=25, font=('Helvetica', 14),
-                                     bg='red', fg='#eeeeee', borderwidth=3, state=DISABLED)
+                                     bg='red', fg='#eeeeee', borderwidth=3, state=DISABLED,
+                                     command=self.__delete_account)
         self.update_login_password = Button(self.buttons_frame, text='Atualizar Login e Senha', width=25,
                                             font=('Helvetica', 14), bg='#393e46', fg='#eeeeee', borderwidth=3,
                                             command=self.__update_admin_login_password)
@@ -52,8 +54,9 @@ class AdminAreaGUI:
                                         font=('Helvetica', 14), bg='#222831', fg='#eeeeee', borderwidth=3,
                                         command=self.__back)
 
-        # Binding the FocusIn event to change the state of the see_data and delete_account buttons
-        self.accounts_listbox.bind("<FocusIn>", self.__alter_state)
+        # Binding the ListboxSelect event to change the state of the see_data and delete_account buttons
+        if len(self.listbox_data) != 0:
+            self.accounts_listbox.bind("<<ListboxSelect>>", self.__alter_state)
 
         # Putting it onto the screen
         self.system_state.pack(pady=50)
@@ -104,3 +107,74 @@ class AdminAreaGUI:
         """
         # Initializing the UpdateAdminDataGUI
         UpdateAdminDataGUI()
+
+    def __see_data(self):
+        """
+        This method initializes the AdminSeeDataGUI class, that will show the data from the selected client in the list
+        box.
+        :return: None
+        """
+        # Splitting the string from the listbox selection to get the number only
+        selected = self.accounts_listbox.get(ANCHOR)
+        selected = selected.split()
+        selected = selected[0]
+
+        # Initializing the AdminSeeDataGUI class
+        AdminSeeDataGUI(account_selected=selected)
+
+    def __delete_account(self):
+        """
+        This method deletes the selected account from the listbox. Only the administrator of the system has access to
+        this operation.
+        :return: None
+        """
+        def delete_client(selection):
+            """
+            This function deletes the account data from the clients database
+            :return: None
+            """
+            database = r'.\bank_databases\clients.csv'
+            with open(database, mode='r', newline='', encoding='utf-8') as file:
+                clients = file.readlines()
+            with open(database, mode='w', newline='', encoding='utf-8') as file:
+                for line in clients:
+                    if line.startswith(selection):
+                        pass
+                    else:
+                        file.write(line)
+        # Saving the selected content for deletion later
+        element = self.accounts_listbox.get(ANCHOR)
+
+        # Splitting the string from the listbox selection to get the number only
+        selected = self.accounts_listbox.get(ANCHOR)
+        selected = selected.split()
+        selected = selected[0]
+
+        # Asking the administrator if hes really sure of what he is about to do
+        response = messagebox.askyesno('Confirmar exclusão', f'Você tem certeza que deseja excluir a conta de número '
+                                                             f'{selected}? Esta operação é permanente e não pode ser '
+                                                             f'desfeita.')
+        # If response is True/Yes
+        if response:
+            # Updating the elements in the listbox
+            self.accounts_listbox.delete(ANCHOR)
+            self.listbox_data.remove(element)
+
+            # Updating the state of the buttons
+            self.see_data.config(state=DISABLED)
+            self.delete_account.config(state=DISABLED)
+
+            # Deleting the account from the system
+            delete_client(selection=selected)
+
+            # Showing the user that the request was successfully completed
+            messagebox.showinfo('Conta removida', f'A conta de número {selected} foi removida com sucesso do sistema!')
+
+            # Changing the state of the button if theres no accounts left
+            if len(self.listbox_data) == 0:
+                self.see_data.config(state=DISABLED)
+                self.delete_account.config(state=DISABLED)
+                self.accounts_listbox.unbind('<<ListboxSelect>>')
+        # If response is False/No
+        else:
+            pass

@@ -11,13 +11,11 @@
 <h2>The second project developed in a Udemy's Python course</h2>
 <hr/>
 <!--About the project section-->
-<br/>
 <div align='center'><h2>💻 About the project 💻</h2></div>
 <br/>
 <p>This project is the third project developed in a Udemy's Python course. This code consists in develop an application that simulates a bank system. Because it is for learning purposes, it doesn't has any real effects, but i tried to simulate as real as possible.</p>
 <hr/>
 <!--How do i download the repository section-->
-<br/>
 <div align='center'><h2>🤔 How do i download the repository? 🤔</h2></div>
 <br/>
 <p>To download this repository on your machine, you need the following elements installed: </p>
@@ -45,6 +43,9 @@ pyinstaller --onefile --noconsole --icon="valware.ico" BankSimulator.py
 ```
 
 <p>This will create an '.exe' application, that you can run it without opening the source-code editor. Also, make sure that the anti-virus is not enabled, because sometimes it identifies as a threat.<br/>
-Now you are all set and good to go! 👍
+Now that you are all set and good to go, the files that needs to be executed are:
+
+- BankSimulator.py -> Execute this one if you didn't created the '.exe' file with the pyinstaller.
+- BankSimulator.exe -> This one will be inside a directory named 'dist' if you created the '.exe' file. You also have to move it to the repository folder after the creation, because it needs access to the 'valware.ico' to show the icon.
 </p>
 <hr/>

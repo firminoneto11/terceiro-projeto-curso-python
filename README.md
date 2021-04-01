@@ -8,12 +8,12 @@
 <!--Title and description-->
 <div align='center'><h1>third-project-python-course</br>terceiro-projeto-curso-python</h1></div>
 <br/>
-<h2>The second project developed in a Udemy's Python course</h2>
+<h2>The third project developed in a Udemy's Python course</h2>
 <hr/>
 <!--About the project section-->
 <div align='center'><h2>💻 About the project 💻</h2></div>
 <br/>
-<p>This project is the third project developed in a Udemy's Python course. This code consists in develop an application that simulates a bank system. Because it is for learning purposes, it doesn't has any real effects, but i tried to simulate as real as possible.</p>
+<p>This project is the third project developed in a Udemy's Python course. This code consists in develop an application that simulates a bank system. Because it is for learning purposes, it doesn't have any real effects, but i tried to simulate as real as possible.</p>
 <hr/>
 <!--How do i download the repository section-->
 <div align='center'><h2>🤔 How do i download the repository? 🤔</h2></div>
@@ -27,7 +27,7 @@
 <p>Once you got all of these installed, run the following command in the git bash terminal to download this repository: </p>
 
 ```bash
-https://github.com/firminoneto11/terceiro-projeto-curso-python.git
+git clone https://github.com/firminoneto11/terceiro-projeto-curso-python.git
 ```
 
 <p>If you just want to run the code without any editing, download the 'pyinstaller' lib with the PIP - Python Index Package. Type the following command on your terminal: </p>
@@ -46,6 +46,6 @@ pyinstaller --onefile --noconsole --icon="valware.ico" BankSimulator.py
 Now that you are all set and good to go, the files that needs to be executed are:
 
 - BankSimulator.py -> Execute this one if you didn't created the '.exe' file with the pyinstaller.
-- BankSimulator.exe -> This one will be inside a directory named 'dist' if you created the '.exe' file. You also have to move it to the repository folder after the creation, because it needs access to the 'valware.ico' to show the icon.
+- BankSimulator.exe -> Execute this one if you created the '.exe' file with the pyinstaller. It will be inside a directory named 'dist'. You also have to move it to the repository folder after the creation, because it needs access to the 'valware.ico' to show the icon.
 </p>
 <hr/>

@@ -20,7 +20,7 @@ class DepositGUI:
         # Creating another window for the 'depositar' section
         self.gui_depositar = Toplevel()
         self.gui_depositar.configure(background='#393e46')
-        self.gui_depositar.iconbitmap(r'.\assets\valware.ico')
+        self.gui_depositar.iconbitmap(r'.\valware.ico')
         self.gui_depositar.resizable(False, False)
         self.gui_depositar.title("Depositar")
         centralize(width=900, height=500, element=self.gui_depositar)

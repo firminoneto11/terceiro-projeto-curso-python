@@ -23,7 +23,7 @@ class TransferGUI:
         # Creating another window for the 'transfer' section
         self.transfer_gui = Toplevel()
         self.transfer_gui.configure(background='#393e46')
-        self.transfer_gui.iconbitmap(r'.\assets\valware.ico')
+        self.transfer_gui.iconbitmap(r'.\valware.ico')
         self.transfer_gui.resizable(False, False)
         self.transfer_gui.title("Transferir")
         centralize(width=900, height=500, element=self.transfer_gui)

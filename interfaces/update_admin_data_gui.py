@@ -13,7 +13,7 @@ class UpdateAdminDataGUI:
         # Creating a new window for the changes
         self.update_window = Toplevel()
         self.update_window.configure(background='#393e46')
-        self.update_window.iconbitmap(r'.\assets\valware.ico')
+        self.update_window.iconbitmap(r'.\valware.ico')
         self.update_window.resizable(False, False)
         self.update_window.title("Trocar Login e Senha")
         centralize(width=900, height=500, element=self.update_window)

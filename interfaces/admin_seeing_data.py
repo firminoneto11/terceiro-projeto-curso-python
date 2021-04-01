@@ -30,7 +30,7 @@ class AdminSeeDataGUI:
         # Starting out the GUI for the data visualization
         self.admin_see_data_window = Toplevel()
         self.admin_see_data_window.configure(background='#393e46')
-        self.admin_see_data_window.iconbitmap(r'.\assets\valware.ico')
+        self.admin_see_data_window.iconbitmap(r'.\valware.ico')
         self.admin_see_data_window.resizable(False, False)
         self.admin_see_data_window.title("Dados do cliente")
         centralize(width=1000, height=700, element=self.admin_see_data_window)

@@ -15,6 +15,25 @@
 <br/>
 <p>This project is the third project developed in a Udemy's Python course. This code consists in develop an application that simulates a bank system. Because it is for learning purposes, it doesn't have any real effects, but i tried to simulate as real as possible.</p>
 <hr/>
+<!--Technologies section-->
+<div align='center'><h2>👻 Technologies 👻</h2></div>
+<br/>
+<p>To build this project, i used mostly Python and Tkinter. This last one is the built-in library to create Graphical User Interfaces (GUI's) from python. Also i used both HTML and CSS to create the icon for the application.<br/>
+From the Python language, i used the following modules:
+
+- Tkinter
+- OS
+- CSV
+- Pickle
+- Datetime
+
+And to create the icon, i used the following languages:
+
+- HTML
+- CSS
+
+The data from the users and the administrator are being stored in csv, pickle and text files. I did not used any databases because i don't know yet how to implement one in the code, but for future projects, i intend to apply them as best as i can.</p>
+<hr/>
 <!--How do i download the repository section-->
 <div align='center'><h2>🤔 How do i download the repository? 🤔</h2></div>
 <br/>
@@ -47,5 +66,19 @@ Now that you are all set and good to go, the files that needs to be executed are
 
 - BankSimulator.py -> Execute this one if you didn't created the '.exe' file with the pyinstaller.
 - BankSimulator.exe -> Execute this one if you created the '.exe' file with the pyinstaller. It will be inside a directory named 'dist'. You also have to move it to the repository folder after the creation, because it needs access to the 'valware.ico' to show the icon.
+</p>
+<hr/>
+<!--Structure of the project section-->
+<div align='center'><h2>📁 Structure of the project 📁</h2></div>
+<br/>
+<p>The project's presentation order are created by the screens that the GUI has. For better visualization, the functionalities will be shown in the following order:
+
+- Main menu
+- Account creation
+- Accessing account
+- Account info
+- Deposit, withdrawal and transfer
+- Administration access
+- Administrator area (This one contains a client's data visualization, account removal and login/password update)
 </p>
 <hr/>

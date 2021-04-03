@@ -102,8 +102,8 @@ Now that you are all set and good to go, the files that needs to be executed are
 <p>If the user chooses to create an account, the following screen is presented: </p>
 <img src='https://github.com/firminoneto11/terceiro-projeto-curso-python/blob/main/assets/ss2.PNG' alt='A screenshot of the account creation screen'>
 <p>Here we have five fields to be filled and they are necessary for identification of the users. Also, the system generates an account number automatically, which starts in 1001 and gets incremented everytime a new user is registered.</br>
-The 'Criar conta' button means 'Create account', which is to finish the registration and create the account and the 'Voltar' button is just a back button to cancel all the changes and go back to he main menu.<br/>
-If any of these fields is left empty and the user try to create the account, an error window will pop up, showing that in order to create an account, all the fields can not be left in blank.<br/>
+The 'Criar conta' button means 'Create account', which is to finish the registration and create the account and the 'Voltar' button is just a back button to cancel all the changes and go back to the main menu.<br/>
+If any of these fields is left empty and the user tries to create the account, an error window will pop up, showing that in order to create an account, all the fields can not be left in blank.<br/>
 The fields in respective order and it's meanings:
 
 - Nome / Name
@@ -155,6 +155,6 @@ Here we have an exemple of what and how will be displayed the data from a accoun
 - Transferir / Transnfer
 - Voltar ao menu inicial / Back to the main menu
 
-If the user presses the 'Voltar ao menu inicial' button, the user's session is closed, returns to he main menu and needs to login again to access the account info section.
+If the user presses the 'Voltar ao menu inicial' button, the user's session is closed, returns to the main menu and needs to login again to access the account info section.
 </p>
 <hr/>

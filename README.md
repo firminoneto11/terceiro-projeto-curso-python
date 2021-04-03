@@ -128,7 +128,8 @@ After a successfully account creation a pop up window will be displayed notifyin
 - Senha / Password
 
 If any of these fields are left empty, the pop window will be shown, informing that all fields must be filled.<br/>
-To access the account, just needs the account number, which is displayed right after the account creation and the login/password chosen as well.
+To access the account, just needs the account number, which is displayed right after the account creation and the login/password chosen as well.<br/>
+Also, there are two buttons. The 'Acessar conta' button should be pressed after typing the right data in the entry boxes and the 'Voltar' button returns to the main menu.
 </p>
 <hr/>
 <!--Account info section-->

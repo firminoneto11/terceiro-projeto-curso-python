@@ -86,7 +86,7 @@ Now that you are all set and good to go, the files that needs to be executed are
 <div align='center'><h2>💎 Initial Screen / Main Menu 💎</h2></div>
 <br/>
 <p>When the user executes the program, the first screen that is shown is this one: </p>
-<img src='./assets/ss1.png'>
+<img src='https://github.com/firminoneto11/terceiro-projeto-curso-python/blob/main/assets/ss1.PNG' alt='A screenshot of the main menu screen'>
 <p>As you can see, there are four options: </p>
 
 - Entrar na conta / Login account
@@ -100,7 +100,7 @@ Now that you are all set and good to go, the files that needs to be executed are
 <div align='center'><h2>💎 Account Creation 💎</h2></div>
 <br/>
 <p>If the user chooses to create an account, the following screen is presented: </p>
-<img src='./assets/ss2.png'>
+<img src='https://github.com/firminoneto11/terceiro-projeto-curso-python/blob/main/assets/ss2.PNG' alt='A screenshot of the account creation screen'>
 <p>Here we have five fields to be filled and they are necessary for identification of the users. Also, the system generates an account number automatically, which starts in 1001 and gets incremented everytime a new user is registered.</br>
 The 'Criar conta' button means 'Create account', which is to finish the registration and create the account and the 'Voltar' button is just a back button to cancel all the changes and go back to he main menu.<br/>
 If any of these fields is left empty and the user try to create the account, an error window will pop up, showing that in order to create an account, all the fields can not be left in blank.<br/>
@@ -120,7 +120,7 @@ After a successfully account creation a pop up window will be displayed notifyin
 <div align='center'><h2>💎 Accessing account 💎</h2></div>
 <br/>
 <p>If at least one account is registered in the system, the user can access it in the 'Entrar na conta' button. When he selects it, this screen will be displayed: </p>
-<img src='./assets/ss3.png'>
+<img src='https://github.com/firminoneto11/terceiro-projeto-curso-python/blob/main/assets/ss3.PNG' alt='Screenshot of the accessing acount section'>
 <p>Here, we have three fields to be filled: 
 
 - Número da conta / Account number
@@ -135,7 +135,7 @@ To access the account, just needs the account number, which is displayed right a
 <div align='center'><h2>💎 Account info 💎</h2></div>
 <br/>
 <p>After a successfully login, the following screen will be shown to the user: </p>
-<img src='./assets/ss4.png'>
+<img src='https://github.com/firminoneto11/terceiro-projeto-curso-python/blob/main/assets/ss4.PNG' alt='A screenshot of the account info section'>
 <p>When an account is created, the initial balance amount is zero (R$00,00) reais. It can be changed by transfering from another account or depositing.<br/>
 The data that are being displayed are:
 

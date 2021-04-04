@@ -180,7 +180,7 @@ The second input box asks the destiny account number of the transfer, then again
 <div align='center'><h2>💎 Administration access 💎</h2></div>
 <br/>
 <p>If the user/administrator clicks the 'Administração' button in the main menu area, the following screen is shown: </p>
-<img src='./assets/ss8.png' alt='A screenshot of the admin access area'>
+<img src='https://github.com/firminoneto11/terceiro-projeto-curso-python/blob/main/assets/ss8.PNG' alt='A screenshot of the admin access area'>
 <p>There are two input boxes and two buttons. The first input box is for the login and the second input box (senha) is the password. By default, both login and password are 'admin'. That can be changed afterawards.<br/>
 Like the previous inputs boxes, if the 'Acessar Administração' button is pressed and any of the input boxes is empty, a pop up error will be displayed, showing that the administrator needs to fill the boxes.<br/>
 The 'Voltar' button works like the others and returns to the main menu screen.

@@ -73,13 +73,13 @@ Now that you are all set and good to go, the files that needs to be executed are
 <br/>
 <p>The project's presentation order are created by the screens that the GUI has. For better visualization, the functionalities will be shown in the following order:
 
-- Main menu
-- Account creation
-- Accessing account
-- Account info
-- Deposit, withdrawal and transfer
-- Administration access
-- Administrator area (This one contains a client's data visualization, account removal and login/password update)
+- [x] Main menu
+- [x] Account creation
+- [x] Accessing account
+- [x] Account info
+- [x] Deposit, withdrawal and transfer
+- [x] Administration access
+- [] Administrator area (This one contains a client's data visualization, account removal and login/password update)
 </p>
 <hr/>
 <!--Main Menu Section-->
@@ -158,7 +158,7 @@ Here we have an exemple of what and how will be displayed the data from a accoun
 If the user presses the 'Voltar ao menu inicial' button, the user's session is closed, returns to the main menu and needs to login again to access the account info section.
 </p>
 <hr/>
-<!--Deposit, withdrawal and transfer-->
+<!--Deposit, withdrawal and transfer section-->
 <div align='center'><h2>💎 Deposit, withdrawal and transfer 💎</h2></div>
 <br/>
 <p>Still on the account info screen, the user is presented with the four buttons bellow the account's info. The 'Voltar ao menu principal' is the back button and it works for canceling the session and going back to the main menu, but what about the other three? Let's talk about them.</p>
@@ -176,3 +176,21 @@ If the user presses the deposit button without any value typed in the input box,
 The first input box is asking the amount of money/credit that the user wants to transfer. It also follows the rules of the withdrawal area, the amount to be transfered HAS to be equal or less than the user's current balance, otherwise, an error (pop up window) will be displayed.<br/>
 The second input box asks the destiny account number of the transfer, then again, if the destiny account number is invalid, a pop up window will be shown, saying that the account number typed is not valid.</p>
 <hr/>
+<!--Administration access section-->
+<div align='center'><h2>💎 Administration access 💎</h2></div>
+<br/>
+<p>If the user/administrator clicks the 'Administração' button in the main menu area, the following screen is shown: </p>
+<img src='./assets/ss8.png' alt='A screenshot of the admin access area'>
+<p>There are two input boxes and two buttons. The first input box is for the login and the second input box (senha) is the password. By default, both login and password are 'admin'. That can be changed afterawards.<br/>
+Like the previous inputs boxes, if the 'Acessar Administração' button is pressed and any of the input boxes is empty, a pop up error will be displayed, showing that the administrator needs to fill the boxes.<br/>
+The 'Voltar' button works like the others and returns to the main menu screen.
+</p>
+<hr/>
+<!--Administrator area section-->
+<div align='center'><h2>💎 Administration area 💎</h2></div>
+<br/>
+<p>Area in construction...</p>
+<hr/>
+<!--Author section-->
+<div align='center'><h2>👾 Author 👾</h2></div>
+<p>Made with ❤ by <a href='https://github.com/firminoneto11'>Firmino Neto</a>.</p>

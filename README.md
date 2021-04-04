@@ -79,11 +79,11 @@ Now that you are all set and good to go, the files that needs to be executed are
 - [x] Account info
 - [x] Deposit, withdrawal and transfer
 - [x] Administration access
-- [] Administrator area (This one contains a client's data visualization, account removal and login/password update)
+- [ ] Administrator area (This one contains a client's data visualization, account removal and login/password update)
 </p>
 <hr/>
 <!--Main Menu Section-->
-<div align='center'><h2>💎 Initial Screen / Main Menu 💎</h2></div>
+<div align='center'><h2>💎 Initial screen / Main menu 💎</h2></div>
 <br/>
 <p>When the user executes the program, the first screen that is shown is this one: </p>
 <img src='https://github.com/firminoneto11/terceiro-projeto-curso-python/blob/main/assets/ss1.PNG' alt='A screenshot of the main menu screen'>

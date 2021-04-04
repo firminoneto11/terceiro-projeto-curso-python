@@ -158,3 +158,21 @@ Here we have an exemple of what and how will be displayed the data from a accoun
 If the user presses the 'Voltar ao menu inicial' button, the user's session is closed, returns to the main menu and needs to login again to access the account info section.
 </p>
 <hr/>
+<!--Deposit, withdrawal and transfer-->
+<div align='center'><h2>💎 Deposit, withdrawal and transfer 💎</h2></div>
+<br/>
+<p>Still on the account info screen, the user is presented with the four buttons bellow the account's info. The 'Voltar ao menu principal' is the back button and it works for canceling the session and going back to the main menu, but what about the other three? Let's talk about them.</p>
+<h3>* Deposit</h3>
+<img src='https://github.com/firminoneto11/terceiro-projeto-curso-python/blob/main/assets/ss5.PNG' alt='A screenshot of the deposit area'>
+<p>As you can see, the deposit area only has one input box and two buttons. The 'Depositar' button is the one that does the actual action and the 'Cancelar' button closes the deposit window.<br/>
+If the user presses the deposit button without any value typed in the input box, a pop up  window will be displayed informing that he needs to insert any value in there and also it has to be valid number values. After that is correctly done, the deposit is completed and a nice pop up window will be displayed showing that the deposit was successfully made.
+</p>
+<h3>* Withdrawal</h3>
+<img src='https://github.com/firminoneto11/terceiro-projeto-curso-python/blob/main/assets/ss6.PNG' alt='A screenshot of the withdrawal area'>
+<p>The withdrawal area works quite similar to the deposit area, but there are some minor differences beetween them. The 'Sacar' button is now the withdrawal button and the input box also doesn't accept any invalid numbers or empty entry, but the amount to be withdrawaled HAS to be equal or less than the user's current balance, otherwise, an error (pop up window) will be displayed.</p>
+<h3>* Transfer</h3>
+<img src='https://github.com/firminoneto11/terceiro-projeto-curso-python/blob/main/assets/ss7.PNG' alt='A screenshot of the transfer area'>
+<p>Now, about the transfer. This one now has two input boxes and two buttons. This time, the 'Transferir' button is the transfer button and before pressing it, the two input boxes needs to be filled.<br/>
+The first input box is asking the amount of money/credit that the user wants to transfer. It also follows the rules of the withdrawal area, the amount to be transfered HAS to be equal or less than the user's current balance, otherwise, an error (pop up window) will be displayed.<br/>
+The second input box asks the destiny account number of the transfer, then again, if the destiny account number is invalid, a pop up window will be shown, saying that the account number typed is not valid.</p>
+<hr/>

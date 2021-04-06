@@ -189,7 +189,23 @@ The 'Voltar' button works like the others and returns to the main menu screen.
 <!--Administrator area section-->
 <div align='center'><h2>💎 Administration area 💎</h2></div>
 <br/>
-<p>Area in construction...</p>
+<p>In this area, the administrator can see all the users that are registered in the application and can also remove one 
+of them (if necessary).<br/>
+The screen that is displayed is the one bellow: </p> 
+<img src='https://github.com/firminoneto11/terceiro-projeto-curso-python/blob/main/assets/ss9.PNG' alt='A screenshot of the administrator screen'>
+<p>Notice that if there are no selected accounts, the buttons 'Visualizar dados da conta' and 'Excluir conta' are 
+disabled, but as soon as the admin clicks or selects one account, it gets enabled: </p>
+<img src="https://github.com/firminoneto11/terceiro-projeto-curso-python/blob/main/assets/ss11.PNG" alt="A screenshot of the admin screen">
+<p>With any selected account, if the admin clicks the 'Visualizar dados da conta', a screen will pop up, displaying all 
+the client's info, like in the following image: </p>
+<img src="https://github.com/firminoneto11/terceiro-projeto-curso-python/blob/main/assets/ss10.PNG">
+<p>Following the same logic, with any selected account, if the admin clicks the 'Excluir conta' button, a pop up window 
+will be displayed asking the admin if he is really sure of he is about to do. Removing an account permanently.<br/>
+Now, the only button left is the 'Atualizar login e senha'. Once pressed, it will display a window for updating the 
+login and password: </p>
+<img src="https://github.com/firminoneto11/terceiro-projeto-curso-python/blob/main/assets/ss12.PNG">
+<p>The first input box is for the new login and the second one is for the new password. The 'Atualizar dados' button 
+will collect the data from the input boxes and update the login and password for the admin login area.</p>
 <hr/>
 <!--Author section-->
 <div align='center'><h2>👾 Author 👾</h2></div>

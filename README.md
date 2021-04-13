@@ -79,7 +79,7 @@ Now that you are all set and good to go, the files that needs to be executed are
 - [x] Account info
 - [x] Deposit, withdrawal and transfer
 - [x] Administration access
-- [ ] Administrator area (This one contains a client's data visualization, account removal and login/password update)
+- [x] Administrator area (This one contains a client's data visualization, account removal and login/password update)
 </p>
 <hr/>
 <!--Main Menu Section-->
